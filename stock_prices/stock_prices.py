@@ -5,14 +5,15 @@ import argparse
 def find_max_profit(prices):
   maxProfit = 0 #setting intial maximum profit
   for i in range(0, len(prices)): #looping over outer scope of prices
-    for j in range(prices.index(prices[i]) + 1, len(prices)): #inner scope of prices that is 1 ahead of the outer scope price
+    for j in range(i + 1, len(prices)): #inner scope of prices that is 1 ahead of the outer scope price
       profit = prices[j] - prices[i] #setting up remainder of profit
       print(profit) 
       if maxProfit == 0: # if there's no max profit then it is set to the previous remainder
         maxProfit = profit
       elif profit > maxProfit: # if there's no max profit then swap
-        swap = profit
-        maxProfit = swap
+        # swap = profit
+        # maxProfit = swap
+        profit, maxProfit = maxProfit, profit
   return maxProfit
 
 if __name__ == '__main__':
